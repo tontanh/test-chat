@@ -10,6 +10,8 @@ import 'package:test1/login.dart';
 import 'package:test1/ultils/alertSnackbar.dart';
 import 'package:test1/ultils/state_m.dart';
 
+import 'chat/chatroom.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -48,7 +50,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
         appBar: AppBar(
          
-          title:Text('id : ${dataControllers.id}'),
+          title:Text('id : ${dataControllers.id}',style: TextStyle(fontSize: 16),),
           actions: [
           TextButton(
             onPressed: () async {
@@ -80,10 +82,12 @@ class _HomepageState extends State<Homepage> {
                               child: boxwidget(
                                 name: name,
                                 onTap: () {
-                                  alertSnackbar().showAlert(
-                                      context: context,
-                                      txt: '${data['_id']}',
-                                      color: Colors.teal);
+                                  // alertSnackbar().showAlert(
+                                  //     context: context,
+                                  //     txt: '${data['_id']}',
+                                  //     color: Colors.teal);
+                                      dataControllers.s_id='${data['_id']}'.obs;
+                                      Get.to(()=>ChatRoom(),transition: Transition.rightToLeft);
                                 },
                               ),
                             );

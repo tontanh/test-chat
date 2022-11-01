@@ -18,7 +18,7 @@ class ChatHttp {
   };
   // get all user
   Future fetchDataAllUsers(String id) async {
-    var url = "http://192.168.173.30:5001/api/auth/allusers/$id";
+    var url = "http://192.168.43.208:5001/api/auth/allusers/$id";
     try {
       final response = await http.get(Uri.parse(url), headers: headers);
       if (response.statusCode == 200) {
@@ -38,7 +38,7 @@ class ChatHttp {
     txt,
     BuildContext? context,
   }) async {
-    const String url = 'http://192.168.173.30:5001/api/auth/login';
+    const String url = 'http://192.168.43.208:5001/api/auth/login';
     Map data = {"username": name, "password": pass};
     Uri uri = Uri.parse(url);
     final response =
